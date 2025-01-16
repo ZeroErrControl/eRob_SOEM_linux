@@ -30,6 +30,10 @@ add_executable(eRob_CST eRob_CST.cpp)
 target_link_libraries(eRob_CST soem)
 install(TARGETS eRob_CST DESTINATION bin)
 
+add_executable(eRob_CSP eRob_CSP.cpp)
+target_link_libraries(eRob_CSP soem)
+install(TARGETS eRob_CSP DESTINATION bin)
+
 # add a test program
 #add_executable(eRob_TC eRob_TC.cpp)
 #target_link_libraries(eRob_TC soem)

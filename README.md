@@ -55,7 +55,12 @@ sudo ./build/demo/eRob_CSP_subscriber
 python3 src/erob_ros/src/eCoder_fake.py
 ``` 
 
-4. Launch the profile torque mode (PT):
+4. Launch the cyclic synchronous position mode (CSP):
+```bash
+sudo ./build/demo/eRob_CSP
+``` 
+
+5. Launch the profile torque mode (PT):
 In this mode, we can control the torque of the servo motor and have added PDO mapping to obtain the position, speed, torque, and status word of the servo motor. 
 
 ```bash
@@ -64,7 +69,7 @@ sudo ./build/demo/eRob_PT
 If you want to consult the object dictionary, you can run the following command and then run `sudo ./build/test/linux/slaveinfo <ethercat_device> -map` to view the object dictionary.
 
 
-5. Launch the cyclic synchronous torque mode (CST):
+6. Launch the cyclic synchronous torque mode (CST):
 In this mode, we can control the torque of the servo motor and have added PDO mapping to obtain the position, speed, torque, and status word of the servo motor. 
 
 ```bash

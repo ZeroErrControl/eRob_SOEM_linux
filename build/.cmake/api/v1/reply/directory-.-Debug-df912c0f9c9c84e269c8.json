@@ -1,0 +1,100 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 104,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 105,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 108,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"libsoem.so"
+			],
+			"targetId" : "soem::@6890427a1f51a3e7e1df",
+			"targetIndex" : 12,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "share/soem/cmake",
+			"exportName" : "soemConfig",
+			"exportTargets" : 
+			[
+				{
+					"id" : "soem::@6890427a1f51a3e7e1df",
+					"index" : 12
+				}
+			],
+			"paths" : 
+			[
+				"CMakeFiles/Export/share/soem/cmake/soemConfig.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "include/soem",
+			"paths" : 
+			[
+				"soem/ethercat.h",
+				"soem/ethercatbase.h",
+				"soem/ethercatcoe.h",
+				"soem/ethercatconfig.h",
+				"soem/ethercatconfiglist.h",
+				"soem/ethercatdc.h",
+				"soem/ethercateoe.h",
+				"soem/ethercatfoe.h",
+				"soem/ethercatmain.h",
+				"soem/ethercatprint.h",
+				"soem/ethercatsoe.h",
+				"soem/ethercattype.h",
+				"osal/linux/osal_defs.h",
+				"osal/osal.h",
+				"oshw/linux/nicdrv.h",
+				"oshw/linux/oshw.h"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	}
+}
