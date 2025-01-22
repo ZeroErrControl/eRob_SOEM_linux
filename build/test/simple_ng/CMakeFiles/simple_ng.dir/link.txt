@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wall -Wextra -Werror CMakeFiles/simple_ng.dir/simple_ng.c.o -o simple_ng  -Wl,-rpath,/home/erobman/eRob_SOEM_linux/build: ../../libsoem.so -lpthread -lrt 

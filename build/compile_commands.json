@@ -1,0 +1,122 @@
+[
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/gcc -Dsoem_EXPORTS -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux  -Wall -Wextra -Werror -g -fPIC -o CMakeFiles/soem.dir/soem/ethercatbase.c.o -c /home/erobman/eRob_SOEM_linux/soem/ethercatbase.c",
+  "file": "/home/erobman/eRob_SOEM_linux/soem/ethercatbase.c"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/gcc -Dsoem_EXPORTS -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux  -Wall -Wextra -Werror -g -fPIC -o CMakeFiles/soem.dir/soem/ethercatcoe.c.o -c /home/erobman/eRob_SOEM_linux/soem/ethercatcoe.c",
+  "file": "/home/erobman/eRob_SOEM_linux/soem/ethercatcoe.c"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/gcc -Dsoem_EXPORTS -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux  -Wall -Wextra -Werror -g -fPIC -o CMakeFiles/soem.dir/soem/ethercatconfig.c.o -c /home/erobman/eRob_SOEM_linux/soem/ethercatconfig.c",
+  "file": "/home/erobman/eRob_SOEM_linux/soem/ethercatconfig.c"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/gcc -Dsoem_EXPORTS -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux  -Wall -Wextra -Werror -g -fPIC -o CMakeFiles/soem.dir/soem/ethercatdc.c.o -c /home/erobman/eRob_SOEM_linux/soem/ethercatdc.c",
+  "file": "/home/erobman/eRob_SOEM_linux/soem/ethercatdc.c"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/gcc -Dsoem_EXPORTS -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux  -Wall -Wextra -Werror -g -fPIC -o CMakeFiles/soem.dir/soem/ethercateoe.c.o -c /home/erobman/eRob_SOEM_linux/soem/ethercateoe.c",
+  "file": "/home/erobman/eRob_SOEM_linux/soem/ethercateoe.c"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/gcc -Dsoem_EXPORTS -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux  -Wall -Wextra -Werror -g -fPIC -o CMakeFiles/soem.dir/soem/ethercatfoe.c.o -c /home/erobman/eRob_SOEM_linux/soem/ethercatfoe.c",
+  "file": "/home/erobman/eRob_SOEM_linux/soem/ethercatfoe.c"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/gcc -Dsoem_EXPORTS -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux  -Wall -Wextra -Werror -g -fPIC -o CMakeFiles/soem.dir/soem/ethercatmain.c.o -c /home/erobman/eRob_SOEM_linux/soem/ethercatmain.c",
+  "file": "/home/erobman/eRob_SOEM_linux/soem/ethercatmain.c"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/gcc -Dsoem_EXPORTS -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux  -Wall -Wextra -Werror -g -fPIC -o CMakeFiles/soem.dir/soem/ethercatprint.c.o -c /home/erobman/eRob_SOEM_linux/soem/ethercatprint.c",
+  "file": "/home/erobman/eRob_SOEM_linux/soem/ethercatprint.c"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/gcc -Dsoem_EXPORTS -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux  -Wall -Wextra -Werror -g -fPIC -o CMakeFiles/soem.dir/soem/ethercatsoe.c.o -c /home/erobman/eRob_SOEM_linux/soem/ethercatsoe.c",
+  "file": "/home/erobman/eRob_SOEM_linux/soem/ethercatsoe.c"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/gcc -Dsoem_EXPORTS -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux  -Wall -Wextra -Werror -g -fPIC -o CMakeFiles/soem.dir/osal/linux/osal.c.o -c /home/erobman/eRob_SOEM_linux/osal/linux/osal.c",
+  "file": "/home/erobman/eRob_SOEM_linux/osal/linux/osal.c"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/gcc -Dsoem_EXPORTS -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux  -Wall -Wextra -Werror -g -fPIC -o CMakeFiles/soem.dir/oshw/linux/nicdrv.c.o -c /home/erobman/eRob_SOEM_linux/oshw/linux/nicdrv.c",
+  "file": "/home/erobman/eRob_SOEM_linux/oshw/linux/nicdrv.c"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/gcc -Dsoem_EXPORTS -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux  -Wall -Wextra -Werror -g -fPIC -o CMakeFiles/soem.dir/oshw/linux/oshw.c.o -c /home/erobman/eRob_SOEM_linux/oshw/linux/oshw.c",
+  "file": "/home/erobman/eRob_SOEM_linux/oshw/linux/oshw.c"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/gcc -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux  -Wall -Wextra -Werror -g -o test/simple_ng/CMakeFiles/simple_ng.dir/simple_ng.c.o -c /home/erobman/eRob_SOEM_linux/test/simple_ng/simple_ng.c",
+  "file": "/home/erobman/eRob_SOEM_linux/test/simple_ng/simple_ng.c"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/gcc -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux  -Wall -Wextra -Werror -g -o test/linux/slaveinfo/CMakeFiles/slaveinfo.dir/slaveinfo.c.o -c /home/erobman/eRob_SOEM_linux/test/linux/slaveinfo/slaveinfo.c",
+  "file": "/home/erobman/eRob_SOEM_linux/test/linux/slaveinfo/slaveinfo.c"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/gcc -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux  -Wall -Wextra -Werror -g -o test/linux/eepromtool/CMakeFiles/eepromtool.dir/eepromtool.c.o -c /home/erobman/eRob_SOEM_linux/test/linux/eepromtool/eepromtool.c",
+  "file": "/home/erobman/eRob_SOEM_linux/test/linux/eepromtool/eepromtool.c"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/gcc -I/home/erobman/SOEM_ethercat/install/SOEM/include/soem -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux  -Wall -Wextra -Werror -g -o test/linux/simple_test/CMakeFiles/simple_test.dir/simple_test.c.o -c /home/erobman/eRob_SOEM_linux/test/linux/simple_test/simple_test.c",
+  "file": "/home/erobman/eRob_SOEM_linux/test/linux/simple_test/simple_test.c"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/g++ -I/home/erobman/SOEM_ethercat/install/SOEM/include/soem -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux -g -o test/linux/simple_test/CMakeFiles/eRob_test.dir/eRob_test.cpp.o -c /home/erobman/eRob_SOEM_linux/test/linux/simple_test/eRob_test.cpp",
+  "file": "/home/erobman/eRob_SOEM_linux/test/linux/simple_test/eRob_test.cpp"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/g++ -I/home/erobman/SOEM_ethercat/install/SOEM/include/soem -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux -g -o test/linux/simple_test/CMakeFiles/github_test.dir/github.cpp.o -c /home/erobman/eRob_SOEM_linux/test/linux/simple_test/github.cpp",
+  "file": "/home/erobman/eRob_SOEM_linux/test/linux/simple_test/github.cpp"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/g++ -I/home/erobman/SOEM_ethercat/install/SOEM/include/soem -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux -g -o demo/CMakeFiles/eRob_CSV.dir/eRob_CSV.cpp.o -c /home/erobman/eRob_SOEM_linux/demo/eRob_CSV.cpp",
+  "file": "/home/erobman/eRob_SOEM_linux/demo/eRob_CSV.cpp"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/g++ -I/home/erobman/SOEM_ethercat/install/SOEM/include/soem -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux -g -o demo/CMakeFiles/eRob_CSP_subscriber.dir/eRob_CSP_subscriber.cpp.o -c /home/erobman/eRob_SOEM_linux/demo/eRob_CSP_subscriber.cpp",
+  "file": "/home/erobman/eRob_SOEM_linux/demo/eRob_CSP_subscriber.cpp"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/g++ -I/home/erobman/SOEM_ethercat/install/SOEM/include/soem -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux -g -o demo/CMakeFiles/eRob_PP_subscriber.dir/eRob_PP_subscriber.cpp.o -c /home/erobman/eRob_SOEM_linux/demo/eRob_PP_subscriber.cpp",
+  "file": "/home/erobman/eRob_SOEM_linux/demo/eRob_PP_subscriber.cpp"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/g++ -I/home/erobman/SOEM_ethercat/install/SOEM/include/soem -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux -g -o demo/CMakeFiles/eRob_PT.dir/eRob_PT.cpp.o -c /home/erobman/eRob_SOEM_linux/demo/eRob_PT.cpp",
+  "file": "/home/erobman/eRob_SOEM_linux/demo/eRob_PT.cpp"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/g++ -I/home/erobman/SOEM_ethercat/install/SOEM/include/soem -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux -g -o demo/CMakeFiles/eRob_CST.dir/eRob_CST.cpp.o -c /home/erobman/eRob_SOEM_linux/demo/eRob_CST.cpp",
+  "file": "/home/erobman/eRob_SOEM_linux/demo/eRob_CST.cpp"
+},
+{
+  "directory": "/home/erobman/eRob_SOEM_linux/build",
+  "command": "/usr/bin/g++ -I/home/erobman/SOEM_ethercat/install/SOEM/include/soem -I/home/erobman/eRob_SOEM_linux/soem -I/home/erobman/eRob_SOEM_linux/osal -I/home/erobman/eRob_SOEM_linux/osal/linux -I/home/erobman/eRob_SOEM_linux/oshw/linux -g -o demo/CMakeFiles/eRob_CSP.dir/eRob_CSP.cpp.o -c /home/erobman/eRob_SOEM_linux/demo/eRob_CSP.cpp",
+  "file": "/home/erobman/eRob_SOEM_linux/demo/eRob_CSP.cpp"
+}
+]

@@ -59,6 +59,8 @@ void add_timespec(struct timespec *ts, int64 addtime);
 #define stack64k (64 * 1024) // Stack size for threads
 #define NSEC_PER_SEC 1000000000   // Number of nanoseconds in one second
 #define EC_TIMEOUTMON 5000        // Timeout for monitoring in microseconds
+#define MAX_VELOCITY 30000        // 降低最大速度 (从200000降到30000)
+#define MAX_ACCELERATION 50000    // 降低最大加速度 (从500000降到50000)
 
 // Conversion units from the servomotor
 float Cnt_to_deg = 0.000686645; // Conversion factor from counts to degrees

@@ -160,16 +160,44 @@ void set_thread_affinity(pthread_t thread, int cpu_core) {
 }
 
 //##################################################################################################
+
+// 将函数定义移到全局作用域（在erob_test函数之前）
+#define SMOOTHING_WINDOW_SIZE 5
+int32_t position_smoothing_buffer[SMOOTHING_WINDOW_SIZE] = {0};
+int smoothing_index = 0;
+
+int32_t smooth_position(int32_t new_position) {
+    position_smoothing_buffer[smoothing_index] = new_position;
+    smoothing_index = (smoothing_index + 1) % SMOOTHING_WINDOW_SIZE;
+    
+    int64_t sum = 0;
+    for (int i = 0; i < SMOOTHING_WINDOW_SIZE; i++) {
+        sum += position_smoothing_buffer[i];
+    }
+    return (int32_t)(sum / SMOOTHING_WINDOW_SIZE);
+}
+
 int erob_test();
 
 uint16_t data_R;
 
 // Add these definitions at the top with other global variables
-#define INTERPOLATION_PERIOD 1000  // 1ms (microseconds)
-#define MAX_VELOCITY 200000        // Increase maximum speed (counts/s)
-#define MAX_ACCELERATION 500000    // Increase maximum acceleration (counts/s^2)
+#define INTERPOLATION_PERIOD 500    // 500微秒
+#define MAX_VELOCITY 80000          // 降低最大速度限制
+#define MAX_ACCELERATION 200000     // 降低最大加速度限制
+#define VELOCITY_THRESHOLD 1000     // 速度误差阈值
+#define MINIMUM_MOVE_DISTANCE 100   // 最小运动距离
 
 // Add these global variables
+struct VelocityProfile {
+    double current_velocity;
+    double target_velocity;
+    double acceleration;
+    double deceleration;
+    double max_jerk;        // 加加速度限制
+    bool need_slow_down;    // 是否需要减速标志
+};
+
 struct MotionProfile {
     int32_t start_position;
     int32_t target_position;
@@ -180,11 +208,12 @@ struct MotionProfile {
     double max_velocity;        // Current maximum velocity
     double max_acceleration;    // Current maximum acceleration 
     double deceleration_point; // Deceleration point position
+    VelocityProfile vel_profile;
+    double previous_velocity;
+    double velocity_error;
+    uint32_t error_count;
 };
 MotionProfile motion_profile = {0, 0, 0, 0.0, 0.0, false, 0.0, 0.0, 0.0};
-
-// Add this function for trajectory generation
-#define MIN_POSITION_INCREMENT 10  // Minimum position change
 
 // Add motor status monitoring
 struct MotorStatus {
@@ -223,54 +252,89 @@ int32_t generate_position_setpoint(MotionProfile* profile, double dt) {
         return motor_status.actual_position;
     }
 
-    // Initialize motion parameters
+    // 初始化运动参数
     if (!profile->in_motion) {
         profile->start_position = motor_status.actual_position;
         profile->current_position = profile->start_position;
-        profile->current_velocity = 0;
+        profile->vel_profile.current_velocity = 0;
+        profile->previous_velocity = 0;
+        profile->velocity_error = 0;
+        profile->error_count = 0;
         profile->in_motion = true;
         
-        // Calculate movement distance
+        // 计算运动距离
         double distance = abs(profile->target_position - profile->start_position);
         
-        // Dynamically adjust speed and acceleration based on distance
-        if (distance < 10000) {
-            profile->max_velocity = MAX_VELOCITY * 0.3;     // Reduce speed for short distances
-            profile->max_acceleration = MAX_ACCELERATION * 0.5;
+        // 根据距离动态调整运动参数
+        if (distance < MINIMUM_MOVE_DISTANCE) {
+            return profile->current_position; // 距离太小，不移动
+        }
+        
+        // 根据距离动态调整速度和加速度
+        if (distance < 1000) {
+            profile->max_velocity = MAX_VELOCITY * 0.1;
+            profile->max_acceleration = MAX_ACCELERATION * 0.15;
+            profile->vel_profile.max_jerk = profile->max_acceleration * 0.2;
+        } else if (distance < 5000) {
+            profile->max_velocity = MAX_VELOCITY * 0.2;
+            profile->max_acceleration = MAX_ACCELERATION * 0.25;
+            profile->vel_profile.max_jerk = profile->max_acceleration * 0.3;
         } else {
-            profile->max_velocity = MAX_VELOCITY;
-            profile->max_acceleration = MAX_ACCELERATION;
+            profile->max_velocity = MAX_VELOCITY * 0.5;
+            profile->max_acceleration = MAX_ACCELERATION * 0.4;
+            profile->vel_profile.max_jerk = profile->max_acceleration * 0.4;
         }
     }
 
-    // Calculate total distance and movement direction
+    // 计算运动参数
     double total_distance = profile->target_position - profile->start_position;
     int direction = (total_distance >= 0) ? 1 : -1;
     total_distance = abs(total_distance);
 
-    // Generate S-curve using sine function
-    // Assume the entire motion is divided into acceleration, constant speed, and deceleration phases
-    double total_time = total_distance / (profile->max_velocity * 0.5); // Estimate total time
-    static double current_time = 0;
-    current_time += dt;
+    // 计算当前到目标的距离
+    double remaining_distance = abs(profile->target_position - profile->current_position);
+    
+    // 速度规划
+    double target_velocity = profile->max_velocity;
+    
+    // 根据剩余距离调整速度
+    if (remaining_distance < (profile->max_velocity * profile->max_velocity) / (2 * profile->max_acceleration)) {
+        // 需要开始减速
+        target_velocity = sqrt(2 * profile->max_acceleration * remaining_distance);
+    }
 
-    // Normalize motion time to [0, 1] interval
-    double normalized_time = current_time / total_time;
-    if (normalized_time > 1.0) normalized_time = 1.0;
+    // 限制加加速度（平滑加速度变化）
+    double velocity_change = target_velocity - profile->vel_profile.current_velocity;
+    velocity_change = std::min(std::max(velocity_change, -profile->vel_profile.max_jerk * dt), 
+                              profile->vel_profile.max_jerk * dt);
+    
+    // 更新当前速度
+    profile->vel_profile.current_velocity += velocity_change;
+    
+    // 计算速度误差
+    double velocity_error = abs(profile->vel_profile.current_velocity - profile->previous_velocity);
+    if (velocity_error > VELOCITY_THRESHOLD) {
+        profile->error_count++;
+        // 如果连续出现速度误差，降低速度
+        if (profile->error_count > 5) {
+            profile->max_velocity *= 0.9;
+            profile->error_count = 0;
+        }
+    } else {
+        profile->error_count = 0;
+    }
+    
+    // 更新位置
+    profile->current_position += profile->vel_profile.current_velocity * dt * direction;
+    
+    // 存储当前速度用于下次比较
+    profile->previous_velocity = profile->vel_profile.current_velocity;
 
-    // Use sine function to generate S-curve
-    // (1 - cos(x))/2 creates a smooth transition from 0 to 1 in [0, π] interval
-    double progress = (1 - cos(normalized_time * M_PI)) / 2.0;
-
-    // Calculate current position
-    profile->current_position = profile->start_position + direction * (total_distance * progress);
-
-    // Check if target is reached
+    // 检查是否到达目标
     if (abs(profile->target_position - profile->current_position) < POSITION_STABILITY_THRESHOLD) {
         profile->current_position = profile->target_position;
-        profile->current_velocity = 0;
+        profile->vel_profile.current_velocity = 0;
         profile->in_motion = false;
-        current_time = 0; // Reset time for next motion
     }
 
     return (int32_t)profile->current_position;
@@ -283,7 +347,7 @@ int erob_test() {
     // 1. Call ec_config_init() to move from INIT to PRE-OP state.
     printf("__________STEP 1___________________\n");
     // Init EtherCAT master
-    if (ec_init("enp58s0") <= 0) {
+    if (ec_init("enp6s0") <= 0) {
         printf("Error: Could not initialize EtherCAT master!\n");
         printf("No socket connection on Ethernet port. Execute as root.\n");
         printf("___________________________________________\n");
@@ -642,6 +706,7 @@ int erob_test() {
                 if (motor_status.is_operational) {
                     // 生成下一位置设定点
                     next_position = generate_position_setpoint(&motion_profile, INTERPOLATION_PERIOD / 1000000.0);
+                    next_position = smooth_position(next_position);  // 应用平滑
                     
                     // 更新输出数据
                     output_data[0] = next_position & 0xFFFF;
@@ -704,7 +769,7 @@ int erob_test() {
                 output_data[1] = (position_actual_value >> 16) & 0xFFFF; //
                 output_data[2] = 0x00;          //
                 output_data[3] = 0x00; //
-                output_data[4] = 0xF0;      
+                output_data[4] = 0x80;      
                 //memcpy(ec_slave[0].outputs, output_data, sizeof(output_data)); //
             }
 

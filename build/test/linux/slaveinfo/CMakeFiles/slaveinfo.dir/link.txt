@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wall -Wextra -Werror CMakeFiles/slaveinfo.dir/slaveinfo.c.o -o slaveinfo  -Wl,-rpath,/home/erobman/eRob_SOEM_linux/build: ../../../libsoem.so -lpthread -lrt 
